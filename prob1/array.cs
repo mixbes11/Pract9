@@ -93,15 +93,15 @@ namespace prob1
             collectCount++;
             summator += numberElements;
         }
-        public RectangleArray
-        //public void Copy(RectangleArray[] array)
-        //{
-        //    Rectangle[] array1 = new Rectangle[array.Length];
-        //    for (int i = 0; i < array.Length; i++)
-        //        array1[i] = array[i];
-        //    collectCount++;
-        //    summator += array.Length;
-        //}
+        
+        public RectangleArray(RectangleArray array)
+        {
+            this.array = array.array;
+            for (int i = 0; i < array.array.Length; i++)
+                array[i] = array[i];
+            collectCount++;
+            summator += array.array.Length;
+        }
 
         public void Show()
         {
@@ -134,6 +134,6 @@ namespace prob1
             }
         }
         public static int GetArrayCount => collectCount;
-
+        public static int GetSummator => summator;
     }
 }

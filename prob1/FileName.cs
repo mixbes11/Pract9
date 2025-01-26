@@ -66,20 +66,22 @@ namespace prob1
 
             RectangleArray arr = new RectangleArray(10); // точно ошибочный пример на функции 
             arr.Show();
-            Console.WriteLine(arr[22]);
+            Console.WriteLine(arr[2]);
             
             int buf2 = RectangleArray.GetArrayCount; // работа счетчика на arrayях
             Console.WriteLine(buf2);
-
+            int buf3 = RectangleArray.GetSummator;
+            Console.WriteLine(buf3);
 
 
             Console.WriteLine("Введите число элементов");
             RectangleArray arr1 = new RectangleArray(WriteNumber()); // возможность попробовать ввод данных самостоятельно
             arr1.Show();
+
             Console.WriteLine("Введите проверяемый элемент");
-            Console.WriteLine(arr1[WriteNumber()]);
-            RectangleArray arrayNew = new RectangleArray();
-            arrayNew = RectangleArray.Copy(arr1);
+            Console.WriteLine(arr1[0]);
+            RectangleArray arrayNew = new RectangleArray(arr1); // Копирование коллекции
+            arrayNew.Show();
         }   
     }
 }
