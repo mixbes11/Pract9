@@ -109,9 +109,11 @@ namespace prob1
 
         }
 
-        public double Result(Rectangle rect1, int N)
+        public Rectangle Result(Rectangle rect1, int N)
         {
-            return Width;
+            rect1.Width *= N;
+            rect1.Height *= N;
+            return rect1;
         }
         
         public void Show()
