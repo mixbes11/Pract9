@@ -1,6 +1,7 @@
 ﻿using Microsoft.CSharp.RuntimeBinder;
 using System.Numerics;
 using System.Runtime.CompilerServices;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace prob1
 {
@@ -108,6 +109,10 @@ namespace prob1
 
         }
 
+        public double Result(Rectangle rect1, int N)
+        {
+            return Width;
+        }
         
         public void Show()
         {
@@ -117,24 +122,28 @@ namespace prob1
             Console.WriteLine(Sum(Width, Height));
         }
 
-        public void Double(double Width, double Height)
+        public static explicit operator double(Rectangle rect1)
         {
-            double buf = (Width * Width + Height * Height);
-            double result = 0.5 * Math.Pow(buf, 2);
-            Console.WriteLine("Площадь описанной окружности равна", result);
+            double buf = (rect1.Width * rect1.Width + rect1.Height * rect1.Height);
+            double result = 0.5 * Math.Pow(buf, 0.5);
+            return result;
         }
 
-        public bool Bool(double Width, double Height)
+        public static implicit operator bool(Rectangle rect1)
         {
-            if (Width < Height)
+            if (rect1.Width == rect1.Height)
                 return true;
             else
                 return false;
         }
 
+
         public override bool Equals(object? obj)
         {
-            return base.Equals(obj);
+            Rectangle rect = obj as Rectangle;
+            if (rect == null) return false;
+
+            return Width == rect.Width && Height == rect.Height;
         }
 
 

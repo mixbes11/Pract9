@@ -1,79 +1,34 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 
-namespace Laba9
+public readonly struct Digit
 {
-    internal class Money
-    {
-        int rub;
-        int kop;
-        static int count = 0;
-        public int Rub
-        {
-            get { return rub; }
-            set
-            {
-                if (value < 0)
-                {
-                    rub = 0;
-                    Console.WriteLine("Ошибка, рубли не могут быть отрицательными.");
-                }
-                else
-                    rub = value;
-            }
-        }
-        public int Kop
-        {
-            get => kop;
-            set
-            {
-                if (value < 0)
-                {
-                    kop = 0;
-                    Console.WriteLine("Ошибка, копейки не могут быть отрицательными.");
-                }
-                else
-                {
-                    if (value > 99)
-                    {
-                        Rub += value / 100;
-                        kop = value % 100;
-                    }
-                    else
-                        kop = value;
-                }
-            }
+    private readonly byte digit;
 
-        }
-        public Money()
+    public Digit(byte digit)
+    {
+        if (digit > 9)
         {
-            Rub = 0;
-            Kop = 0;
-            count++;
+            throw new ArgumentOutOfRangeException(nameof(digit), "Digit cannot be greater than nine.");
         }
-        public Money(int r, int k)
-        {
-            Rub = r;
-            Kop = k;
-            count++;
-        }
-        public void Show()
-        {
-            Console.WriteLine($"{Rub} р., {Kop} к.");
-        }
-        public static int GetCount
-        {
-            get => count;
-        }
-        public void AddKop(int sum)
-        {
-            Kop = Kop + sum;
-        }
-        public static void AddKop2(Money m, int sum)
-        {
-            m.Kop = m.Kop + sum;
-        }
+        this.digit = digit;
+    }
+
+    public static implicit operator byte(Digit d) => d.digit;
+    public static explicit operator Digit(byte b) => new Digit(b);
+
+    public override string ToString() => $"{digit}";
+}
+
+public static class UserDefinedConversions
+{
+    public static void Main()
+    {
+        var d = new Digit(7);
+
+        byte number = d;
+        Console.WriteLine(number);  // output: 7
+
+        Digit digit = (Digit)number;
+        Console.WriteLine(digit);  // output: 7
     }
 }
