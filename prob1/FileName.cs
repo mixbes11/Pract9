@@ -31,6 +31,7 @@ namespace prob1
         }
         static void Main(string[] args)
             {
+            double SummaS = 0;
                 Rectangle rect1 = new Rectangle(0.0000000000001, 4); // 1 пример, заведомо не подходящий по критериям
                 rect1.Show();
                 rect1++; // инкримент
@@ -66,7 +67,7 @@ namespace prob1
 
             RectangleArray arr = new RectangleArray(10); // точно ошибочный пример на функции 
             arr.Show();
-            Console.WriteLine(arr[2]);
+            Console.WriteLine(arr[22]);
             
             int buf2 = RectangleArray.GetArrayCount; // работа счетчика на arrayях
             Console.WriteLine(buf2);
@@ -75,13 +76,19 @@ namespace prob1
 
 
             Console.WriteLine("Введите число элементов");
-            RectangleArray arr1 = new RectangleArray(WriteNumber()); // возможность попробовать ввод данных самостоятельно
+            int NativeN = WriteNumber();
+            RectangleArray arr1 = new RectangleArray(NativeN); // возможность попробовать ввод данных самостоятельно
             arr1.Show();
 
-            Console.WriteLine("Введите проверяемый элемент");
+            Console.WriteLine("Проверяемый элемент - 1, наличие ошибок:");
             Console.WriteLine(arr1[0]);
             RectangleArray arrayNew = new RectangleArray(arr1); // Копирование коллекции
             arrayNew.Show();
+            for (int i = 0; i < NativeN; i++) // Вариантное задание
+            {
+                SummaS += (double)arrayNew[i];
+            }
+            Console.WriteLine(SummaS);
         }   
     }
 }
