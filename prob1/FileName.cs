@@ -54,9 +54,12 @@ namespace prob1
             Rectangle result1 = rect1 - 6; // уменьшение на n
             result1.Show();
             Console.WriteLine("уменьшение на n");
+            Rectangle res23 = 6 + result1;
+            res23.Show();
 
             Console.WriteLine(rect1.Equals(rect1)); // пример работы функции сравнения
-            Console.WriteLine((bool)rect2); // пример приведения типа bool 
+            bool buff;
+            Console.WriteLine(buff = rect2); // пример приведения типа bool 
             Console.WriteLine((double)rect2); // пример приведения типа double
             rect1 = rect1.Result(rect1, 2);
 

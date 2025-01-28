@@ -90,6 +90,21 @@ namespace prob1
             return rect1;
         }
 
+        public static Rectangle operator +(double r, Rectangle rect1)
+        {
+            rect1.Width += r;
+            rect1.Height += r;
+            return rect1;
+        }
+
+        public static Rectangle operator -(double r, Rectangle rect1)
+        {
+            rect1.Width -= r;
+            rect1.Height -= r;
+            return rect1;
+        }
+
+
         //public void Double(double Width, double Height)
         //{
         //    double buf = (Width * Width + Height * Height);
@@ -97,7 +112,7 @@ namespace prob1
         //    Console.WriteLine("Площадь описанной окружности равна", result);
         //}
 
-        
+
         public double Sum(double Width, double Height)
         {
             return (double)(Width * Height);   
