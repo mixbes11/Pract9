@@ -36,27 +36,29 @@ namespace prob1
                 rect1.Show();
                 rect1++; // инкримент
                 rect1.Show();
-            Console.WriteLine("Работа инкремента");
+            Console.WriteLine("Работа инкремента ВЫШЕ");
                 Rectangle rect2 = new Rectangle(140, 140); // 2 пример
                 rect2.Show();
                 rect2--; // декримент
                 rect2.Show();
-            Console.WriteLine("Работа декримента");
+            Console.WriteLine("Работа декримента ВЫШЕ");
             Rectangle rect3 = new Rectangle(rect2); // 3 пример 
                 rect3.Show();
                 rect3.Result(rect3, 2); // увеличение в n раз объекта rect3
                 rect3.Show();
-            Console.WriteLine("Работа умножения");
+            Console.WriteLine("Работа умножения ВЫШЕ");
 
             Rectangle result = rect1 + 6; // увеличение на n
             result.Show();
-            Console.WriteLine("увеличение на n");
+            Console.WriteLine("увеличение на n ВЫШЕ");
             Rectangle result1 = rect1 - 6; // уменьшение на n
             result1.Show();
-            Console.WriteLine("уменьшение на n");
+            Console.WriteLine("уменьшение на n ВЫШЕ");
             Rectangle res23 = 6 + result1;
             res23.Show();
-
+            Console.WriteLine("Правосторонняя функция ВЫШЕ");
+            Console.WriteLine("Сравнения");
+            Console.WriteLine(rect1.Equals(rect2)); // пример работы функции сравнения
             Console.WriteLine(rect1.Equals(rect1)); // пример работы функции сравнения
             bool buff;
             Console.WriteLine(buff = rect2); // пример приведения типа bool 
@@ -70,7 +72,13 @@ namespace prob1
 
             RectangleArray arr = new RectangleArray(10); // точно ошибочный пример на функции 
             arr.Show();
-            Console.WriteLine(arr[22]);
+            try
+            {
+                Console.WriteLine(arr[22]);
+            }
+            catch {
+                Console.WriteLine("Индекс за границами массива");
+            }
             
             int buf2 = RectangleArray.GetArrayCount; // работа счетчика на arrayях
             Console.WriteLine(buf2);
@@ -83,9 +91,16 @@ namespace prob1
             RectangleArray arr1 = new RectangleArray(NativeN); // возможность попробовать ввод данных самостоятельно
             arr1.Show();
 
-            Console.WriteLine("Проверяемый элемент - 1, наличие ошибок:");
-            Console.WriteLine(arr1[0]);
-            RectangleArray arrayNew = new RectangleArray(arr1); // Копирование коллекции
+            Console.WriteLine("Проверяемый элемент - 1, сам элемент:");
+            try
+            { 
+                arr1[0].Show();
+            }
+
+            catch {
+                Console.WriteLine("Индекс за границами массива");
+            }
+    RectangleArray arrayNew = new RectangleArray(arr1); // Копирование коллекции
             arrayNew.Show();
             for (int i = 0; i < NativeN; i++) // Вариантное задание
             {

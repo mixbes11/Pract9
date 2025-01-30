@@ -83,7 +83,8 @@ namespace prob1
                         array[i] = new Rectangle(WriteRandomNumber(), WriteRandomNumber());
                     }
                     break;
-                case 2: Console.WriteLine("ввод с клавиатуры");
+                case 2: 
+                    Console.WriteLine("ввод с клавиатуры");
                     for (int i = 0; i < numberElements; i++)
                     {
                         array[i] = new Rectangle(WriteNumber(), WriteNumber());
@@ -118,7 +119,7 @@ namespace prob1
                 if (index < 0 || index >= array.Length)
                 {
 
-                    Console.WriteLine("Индекс за границами массива, возвращаю первый элемент");
+                    throw new IndexOutOfRangeException();
                     return array[0];
                 }
                 return array[index];
@@ -127,7 +128,7 @@ namespace prob1
             {
                 if (index < 0 || index >= array.Length)
                 {
-                    Console.WriteLine("Индекс за границами массива, возвращаю первый элемент");
+                    throw new IndexOutOfRangeException();
                     array[index] = array[0];
                 }
                 array[index] = value;
