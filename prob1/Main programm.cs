@@ -9,6 +9,12 @@ namespace prob1
 {
         internal class Program
         {
+        public static void QuickChoice()
+        {
+            Console.WriteLine("Каким образом хотите ввести массив");
+            Console.WriteLine("1 - рандомно");
+            Console.WriteLine("2 - с клавиатуры");
+        }
 
         public static int WriteNumber() /// Ввод числа с клавиатуры с проверкой
         {
@@ -31,31 +37,32 @@ namespace prob1
         }
         static void Main(string[] args)
             {
+            Console.WriteLine("Задание 1 и 2");
             double SummaS = 0;
                 Rectangle rect1 = new Rectangle(0.0000000000001, 4); // 1 пример, заведомо не подходящий по критериям
-                rect1.Show();
+                Console.WriteLine((string)rect1);
                 rect1++; // инкримент
-                rect1.Show();
+                Console.WriteLine((string)rect1);
             Console.WriteLine("Работа инкремента ВЫШЕ");
                 Rectangle rect2 = new Rectangle(140, 140); // 2 пример
-                rect2.Show();
+                Console.WriteLine((string)rect2);
                 rect2--; // декримент
-                rect2.Show();
+                Console.WriteLine((string)rect2);
             Console.WriteLine("Работа декримента ВЫШЕ");
             Rectangle rect3 = new Rectangle(rect2); // 3 пример 
-                rect3.Show();
+                Console.WriteLine((string)rect3);
                 rect3.Result(rect3, 2); // увеличение в n раз объекта rect3
-                rect3.Show();
+                Console.WriteLine((string)rect3);
             Console.WriteLine("Работа умножения ВЫШЕ");
 
             Rectangle result = rect1 + 6; // увеличение на n
-            result.Show();
+            Console.WriteLine((string)result);
             Console.WriteLine("увеличение на n ВЫШЕ");
             Rectangle result1 = rect1 - 6; // уменьшение на n
-            result1.Show();
+            Console.WriteLine((string)result1);
             Console.WriteLine("уменьшение на n ВЫШЕ");
             Rectangle res23 = 6 + result1;
-            res23.Show();
+            Console.WriteLine((string)res23);
             Console.WriteLine("Правосторонняя функция ВЫШЕ");
             Console.WriteLine("Сравнения");
             Console.WriteLine(rect1.Equals(rect2)); // пример работы функции сравнения
@@ -65,13 +72,14 @@ namespace prob1
             Console.WriteLine((double)rect2); // пример приведения типа double
             rect1 = rect1.Result(rect1, 2);
 
-            Console.WriteLine("Приведения типов");
+            Console.WriteLine("Приведения типов ВЫШЕ");
             int buf1 = Rectangle.GetCount; // работа счетчика
             Console.WriteLine(buf1);
             Console.WriteLine("Счетчик");
 
-            RectangleArray arr = new RectangleArray(10); // точно ошибочный пример на функции 
-            arr.Show();
+            QuickChoice();
+            RectangleArray arr = new RectangleArray(10, WriteNumber()); // точно ошибочный пример на функции 
+            Console.WriteLine(arr.ToString());
             try
             {
                 Console.WriteLine(arr[22]);
@@ -88,20 +96,22 @@ namespace prob1
 
             Console.WriteLine("Введите число элементов");
             int NativeN = WriteNumber();
-            RectangleArray arr1 = new RectangleArray(NativeN); // возможность попробовать ввод данных самостоятельно
-            arr1.Show();
+            QuickChoice();
+            RectangleArray arr1 = new RectangleArray(NativeN, WriteNumber()); // возможность попробовать ввод данных самостоятельно
+            
+            Console.WriteLine(arr1.ToString());
 
             Console.WriteLine("Проверяемый элемент - 1, сам элемент:");
             try
-            { 
-                arr1[0].Show();
+            {
+                Console.WriteLine((string)arr1[0]);
             }
 
             catch {
                 Console.WriteLine("Индекс за границами массива");
             }
     RectangleArray arrayNew = new RectangleArray(arr1); // Копирование коллекции
-            arrayNew.Show();
+            Console.WriteLine(arrayNew.ToString());
             for (int i = 0; i < NativeN; i++) // Вариантное задание
             {
                 SummaS += (double)arrayNew[i];

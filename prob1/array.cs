@@ -3,7 +3,7 @@ using System.Reflection;
 
 namespace prob1
 {
-    internal class RectangleArray
+    public class RectangleArray
     {
         Rectangle[] array;
         public Rectangle element;
@@ -12,25 +12,21 @@ namespace prob1
         public RectangleArray() : this(10)
         {
             array = new Rectangle[10];
-            Console.WriteLine("Каким образом хотите ввести массив");
-            Console.WriteLine("1 - рандомно");
-            Console.WriteLine("2 - с клавиатуры");
+            QuickChoice();
             int vout;
-            vout = WriteNumber();
+            vout = 1;
             switch (vout)
             {
                 case 1:
-                    Console.WriteLine("ввод рандомно");
                     for (int i = 0; i < 10; i++)
                     {
                         array[i] = new Rectangle(WriteRandomNumber(), WriteRandomNumber());
                     }
                     break;
                 case 2:
-                    Console.WriteLine("ввод с клавиатуры");
                     for (int i = 0; i < 10; i++)
                     {
-                        array[i] = new Rectangle(WriteNumber(), WriteNumber());
+                        array[i] = new Rectangle();
                     }
                     break;
             }
@@ -38,56 +34,40 @@ namespace prob1
             summator += 10;
         }
 
-        public static int WriteNumber() /// Ввод числа с клавиатуры с проверкой
+        public static void QuickChoice()
         {
-            bool isConvert = false;
-            string bufInput;
-            int result = 0;
-
-            while (!isConvert)
-            {
-                Console.WriteLine("Введите число");
-                bufInput = Console.ReadLine();
-                isConvert = int.TryParse(bufInput, out result);
-
-                if (!isConvert)
-                {
-                    Console.WriteLine("Ошибка ввода(введено неверное значение)");
-                }
-            }
-            return result;
+            Console.WriteLine("Каким образом хотите ввести массив");
+            Console.WriteLine("1 - рандомно");
+            Console.WriteLine("2 - с клавиатуры");
         }
+
+        
 
         public static double WriteRandomNumber(double left = 0, double right = 1000000) /// Ввести рандомное число 
         {
             Random rnd = new Random();
-
             double value = rnd.NextDouble() * 46340;
             return value;
         }
 
-        public RectangleArray(int numberElements) 
+        public RectangleArray(int numberElements, int vout=1, Array massive = null) 
         {
             array = new Rectangle[numberElements];
-            Console.WriteLine("Каким образом хотите ввести массив");
-            Console.WriteLine("1 - рандомно");
-            Console.WriteLine("2 - с клавиатуры");
-            int vout;
-            vout = WriteNumber();
+            QuickChoice();
             switch (vout)
             {
                 case 1:
-                    Console.WriteLine("ввод рандомно");
+                    
                     for (int i = 0; i < numberElements; i++)
                     {
                         array[i] = new Rectangle(WriteRandomNumber(), WriteRandomNumber());
                     }
                     break;
                 case 2: 
-                    Console.WriteLine("ввод с клавиатуры");
+                    
                     for (int i = 0; i < numberElements; i++)
                     {
-                        array[i] = new Rectangle(WriteNumber(), WriteNumber());
+                        array[i] = new Rectangle();
                     }
                     break;
             }
@@ -95,22 +75,27 @@ namespace prob1
             summator += numberElements;
         }
         
-        public RectangleArray(RectangleArray array)
+        public RectangleArray(RectangleArray rectArray)
         {
-            this.array = array.array;
-            for (int i = 0; i < array.array.Length; i++)
-                array[i] = array[i];
+            this.array = rectArray.array;
+            for (int i = 0; i < rectArray.array.Length; i++)
+                rectArray[i] = rectArray[i];
             collectCount++;
-            summator += array.array.Length;
+            summator += rectArray.array.Length;
         }
 
         public void Show()
         {
             for (int i = 0;i < array.Length;i++)
-                array[i].Show();
+                array[i].ToString();
         }
 
-        
+        public string ToString()
+        {
+            string resultString = string.Empty;
+            Show();
+            return resultString;
+        }
 
         public Rectangle this[int index]
         {
@@ -118,9 +103,7 @@ namespace prob1
             {
                 if (index < 0 || index >= array.Length)
                 {
-
                     throw new IndexOutOfRangeException();
-                    return array[0];
                 }
                 return array[index];
             }
@@ -129,7 +112,6 @@ namespace prob1
                 if (index < 0 || index >= array.Length)
                 {
                     throw new IndexOutOfRangeException();
-                    array[index] = array[0];
                 }
                 array[index] = value;
             }

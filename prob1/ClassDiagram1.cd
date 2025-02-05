@@ -10,15 +10,15 @@
   <Class Name="prob1.Program">
     <Position X="9.5" Y="3.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAABAAAAAA=</HashCode>
-      <FileName>FileName.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAACAAAAgAAAAAAABAAAAAA=</HashCode>
+      <FileName>Main programm.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="prob1.Rectangle">
     <Position X="11.5" Y="3.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAQAAAAABAAAAAQAxAEAIEQAAgAEQAMAAAAAAAAAAAQ=</HashCode>
-      <FileName>Program.cs</FileName>
+      <HashCode>AAQAAAAABAAAAAQExAEAIEQAAgAEQAMAAAAAAAAAAAQ=</HashCode>
+      <FileName>Rectangle.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />

@@ -5,7 +5,7 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace prob1
 {
-    internal class Rectangle
+    public class Rectangle
     {
         double width;
         double height;
@@ -43,7 +43,6 @@ namespace prob1
             this.Width = Width;
             this.Height = Height;
             count++;
-
         }
 
         public Rectangle(Rectangle zero)
@@ -51,7 +50,6 @@ namespace prob1
             this.Width = zero.Width;
             this.Height = zero.Height;
             count++;
-
         }
 
         public Rectangle()
@@ -59,7 +57,6 @@ namespace prob1
             this.Width = Width;
             this.Height = Height;
             count++;
-
         }
 
         public static Rectangle operator ++(Rectangle rect1)
@@ -104,23 +101,14 @@ namespace prob1
             return rect1;
         }
 
-
-        //public void Double(double Width, double Height)
-        //{
-        //    double buf = (Width * Width + Height * Height);
-        //    double result = 0.5 * Math.Pow(buf, 2);
-        //    Console.WriteLine("Площадь описанной окружности равна", result);
-        //}
-
-
-        public double Sum(double Width, double Height)
+        public double Sum()
         {
             return (double)(Width * Height);   
         }
 
-        public static double Summa(double Width, double Height)
+        public static double Summa(Rectangle rectangle)
         {
-            return (double)(Width * Height);
+            return (double)(rectangle.Width * rectangle.Height);
 
         }
 
@@ -134,9 +122,15 @@ namespace prob1
         public void Show()
         {
             Console.WriteLine($"{Width}, {Height}");
-            double result = Summa(Width, Height);
+            double result = Sum();
           
-            Console.WriteLine(Sum(Width, Height));
+            Console.WriteLine(Sum());
+        }
+
+        public static explicit operator string(Rectangle rect1)
+        {
+            double resultString = rect1.Sum();
+            return $"Длина = {rect1.Width}, Ширина = {rect1.Height}, Результат умножения {resultString}";
         }
 
         public static explicit operator double(Rectangle rect1)
