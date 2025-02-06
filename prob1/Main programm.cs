@@ -40,29 +40,29 @@ namespace prob1
             Console.WriteLine("Задание 1 и 2");
             double SummaS = 0;
                 Rectangle rect1 = new Rectangle(0.0000000000001, 4); // 1 пример, заведомо не подходящий по критериям
-                Console.WriteLine((string)rect1);
+                Console.WriteLine(rect1.Show());
                 rect1++; // инкримент
-                Console.WriteLine((string)rect1);
+                Console.WriteLine(rect1.Show());
             Console.WriteLine("Работа инкремента ВЫШЕ");
                 Rectangle rect2 = new Rectangle(140, 140); // 2 пример
-                Console.WriteLine((string)rect2);
+                Console.WriteLine(rect2.Show());
                 rect2--; // декримент
-                Console.WriteLine((string)rect2);
+                Console.WriteLine(rect2.Show());
             Console.WriteLine("Работа декримента ВЫШЕ");
             Rectangle rect3 = new Rectangle(rect2); // 3 пример 
-                Console.WriteLine((string)rect3);
+                Console.WriteLine(rect3.Show());
                 rect3.Result(rect3, 2); // увеличение в n раз объекта rect3
-                Console.WriteLine((string)rect3);
+                Console.WriteLine(rect3.Show());
             Console.WriteLine("Работа умножения ВЫШЕ");
 
             Rectangle result = rect1 + 6; // увеличение на n
-            Console.WriteLine((string)result);
+            Console.WriteLine(result.Show());
             Console.WriteLine("увеличение на n ВЫШЕ");
             Rectangle result1 = rect1 - 6; // уменьшение на n
-            Console.WriteLine((string)result1);
+            Console.WriteLine(result1.Show());
             Console.WriteLine("уменьшение на n ВЫШЕ");
             Rectangle res23 = 6 + result1;
-            Console.WriteLine((string)res23);
+            Console.WriteLine(res23.Show());
             Console.WriteLine("Правосторонняя функция ВЫШЕ");
             Console.WriteLine("Сравнения");
             Console.WriteLine(rect1.Equals(rect2)); // пример работы функции сравнения
@@ -79,10 +79,10 @@ namespace prob1
 
             QuickChoice();
             RectangleArray arr = new RectangleArray(10, WriteNumber()); // точно ошибочный пример на функции 
-            Console.WriteLine(arr.ToString());
+            Console.WriteLine(arr.TooString());
             try
             {
-                Console.WriteLine(arr[22]);
+                Console.WriteLine(arr[22].Show());
             }
             catch {
                 Console.WriteLine("Индекс за границами массива");
@@ -99,19 +99,19 @@ namespace prob1
             QuickChoice();
             RectangleArray arr1 = new RectangleArray(NativeN, WriteNumber()); // возможность попробовать ввод данных самостоятельно
             
-            Console.WriteLine(arr1.ToString());
+            Console.WriteLine(arr1.TooString());
 
             Console.WriteLine("Проверяемый элемент - 1, сам элемент:");
             try
             {
-                Console.WriteLine((string)arr1[0]);
+                Console.WriteLine(arr1[0].Show());
             }
 
             catch {
                 Console.WriteLine("Индекс за границами массива");
             }
-    RectangleArray arrayNew = new RectangleArray(arr1); // Копирование коллекции
-            Console.WriteLine(arrayNew.ToString());
+            RectangleArray arrayNew = new RectangleArray(arr1); // Копирование коллекции
+            Console.WriteLine(arrayNew.TooString());
             for (int i = 0; i < NativeN; i++) // Вариантное задание
             {
                 SummaS += (double)arrayNew[i];

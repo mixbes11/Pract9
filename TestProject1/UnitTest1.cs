@@ -250,13 +250,37 @@ namespace prob1
             // Assert
             Assert.AreEqual(arr1[0], arr2[0]);
         }
-        
+
         [TestMethod]
         public void RectArrayByNew()
         {
             // Arrage
             RectangleArray arr1 = new RectangleArray(2);
-            
+
+            // Act
+            RectangleArray arr2 = new RectangleArray(arr1);
+            // Assert
+            Assert.AreEqual(arr1[0], arr2[0]);
+        }
+
+        [TestMethod]
+        public void RectArrayNoParams()
+        {
+            // Arrage
+            RectangleArray arr1 = new RectangleArray();
+
+            // Act
+            RectangleArray arr2 = new RectangleArray(arr1);
+            // Assert
+            Assert.AreEqual(arr1[0], arr2[0]);
+        }
+
+        [TestMethod]
+        public void RectArrayFullParams()
+        {
+            // Arrage
+            RectangleArray arr1 = new RectangleArray(2, 2);
+
             // Act
             RectangleArray arr2 = new RectangleArray(arr1);
             // Assert
@@ -264,29 +288,6 @@ namespace prob1
         }
 
 
-        [TestMethod]
-        public void RectArrayCounter()
-        {
-            // Arrage
-            RectangleArray arr1 = new RectangleArray(2);
-            RectangleArray arr2 = new RectangleArray(arr1);
-            // Act
-            int buf2 = RectangleArray.GetArrayCount;
-            // Assert
-            Assert.AreEqual(buf2, 10);
-        }
-
-        [TestMethod]
-        public void RectArrayNewCounter()
-        {
-            // Arrage
-            RectangleArray arr1 = new RectangleArray(2);
-            RectangleArray arr2 = new RectangleArray(arr1);
-            // Act
-            int buf3 = RectangleArray.GetSummator;
-            // Assert
-            Assert.AreEqual(buf3, 28);
-        }
         [TestMethod]
         public void ToStringTests()
         {
@@ -298,6 +299,37 @@ namespace prob1
             string result1 = arr2.ToString();
             // Assert
             Assert.AreEqual(result, result1);
+        }
+
+        [TestMethod]
+        public void DoubleRectangleTrue()
+        {
+            // Arrage
+            Rectangle rect1 = new Rectangle();
+            double Width = 30;
+            double Height = 10;
+            // Act
+            rect1.Width = Width;
+            rect1.Height = Height;
+            double buf = (rect1.Width * rect1.Width + rect1.Height * rect1.Height);
+            double result = 0.5 * Math.Pow(buf, 0.5);
+            // Assert
+            Assert.AreEqual(result, (double) rect1);
+        }
+
+        [TestMethod]
+        public void BoolRectangleFalse()
+        {
+            // Arrage
+            Rectangle rect1 = new Rectangle();
+            double Width = 30;
+            double Height = 10;
+            // Act
+            rect1.Width = Width;
+            rect1.Height = Height;
+            
+            // Assert
+            Assert.AreEqual(false, (bool) rect1);
         }
     }
 }

@@ -12,36 +12,15 @@ namespace prob1
         public RectangleArray() : this(10)
         {
             array = new Rectangle[10];
-            QuickChoice();
-            int vout;
-            vout = 1;
-            switch (vout)
-            {
-                case 1:
-                    for (int i = 0; i < 10; i++)
-                    {
-                        array[i] = new Rectangle(WriteRandomNumber(), WriteRandomNumber());
-                    }
-                    break;
-                case 2:
-                    for (int i = 0; i < 10; i++)
-                    {
-                        array[i] = new Rectangle();
-                    }
-                    break;
-            }
+            
+            for (int i = 0; i < 10; i++)
+                {
+                    array[i] = new Rectangle(WriteRandomNumber(), WriteRandomNumber());
+                }
+                    
             collectCount++;
             summator += 10;
         }
-
-        public static void QuickChoice()
-        {
-            Console.WriteLine("Каким образом хотите ввести массив");
-            Console.WriteLine("1 - рандомно");
-            Console.WriteLine("2 - с клавиатуры");
-        }
-
-        
 
         public static double WriteRandomNumber(double left = 0, double right = 1000000) /// Ввести рандомное число 
         {
@@ -50,11 +29,11 @@ namespace prob1
             return value;
         }
 
-        public RectangleArray(int numberElements, int vout=1, Array massive = null) 
+        public RectangleArray(int numberElements, int vote=1, Array massive = null) 
         {
             array = new Rectangle[numberElements];
-            QuickChoice();
-            switch (vout)
+            
+            switch (vote)
             {
                 case 1:
                     
@@ -84,18 +63,14 @@ namespace prob1
             summator += rectArray.array.Length;
         }
 
-        public void Show()
+        public string TooString()
         {
-            for (int i = 0;i < array.Length;i++)
-                array[i].ToString();
+            string resultOfShow = string.Empty;
+            for (int i = 0; i < array.Length; i++)
+                resultOfShow += array[i].Show();
+            return resultOfShow;
         }
 
-        public string ToString()
-        {
-            string resultString = string.Empty;
-            Show();
-            return resultString;
-        }
 
         public Rectangle this[int index]
         {

@@ -118,19 +118,11 @@ namespace prob1
             rect1.Height *= N;
             return rect1;
         }
-        
-        public void Show()
-        {
-            Console.WriteLine($"{Width}, {Height}");
-            double result = Sum();
-          
-            Console.WriteLine(Sum());
-        }
 
-        public static explicit operator string(Rectangle rect1)
+        public string Show()
         {
-            double resultString = rect1.Sum();
-            return $"Длина = {rect1.Width}, Ширина = {rect1.Height}, Результат умножения {resultString}";
+            double resultString = Sum();
+            return $"Длина = {Width}, Ширина = {Height}, Результат умножения {resultString}";
         }
 
         public static explicit operator double(Rectangle rect1)
@@ -147,7 +139,6 @@ namespace prob1
             else
                 return false;
         }
-
 
         public override bool Equals(object? obj)
         {

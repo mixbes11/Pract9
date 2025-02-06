@@ -3,8 +3,8 @@
   <Class Name="prob1.RectangleArray">
     <Position X="13.5" Y="3.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAACAgAAAgKAAAEgABAAIAAAAAAAAA=</HashCode>
-      <FileName>array.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAECAgAAAgIAAAEgABAAIAAAAAAAAA=</HashCode>
+      <FileName>RectangleArray.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="prob1.Program">
@@ -17,7 +17,7 @@
   <Class Name="prob1.Rectangle">
     <Position X="11.5" Y="3.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAQAAAAABAAAAAQExAEAIEQAAgAEQAMAAAAAAAAAAAQ=</HashCode>
+      <HashCode>AAQAAAAABAAAAAQAxAUAIEQAAgAAQAMAAAAAAAAAAAQ=</HashCode>
       <FileName>Rectangle.cs</FileName>
     </TypeIdentifier>
   </Class>
