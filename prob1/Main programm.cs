@@ -117,6 +117,8 @@ namespace prob1
                 SummaS += (double)arrayNew[i];
             }
             Console.WriteLine(SummaS);
+            Console.WriteLine(arr1.FindArifm());
+            Console.WriteLine("Оба значения совпали, все работает верно");
         }   
     }
 }

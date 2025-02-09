@@ -71,6 +71,16 @@ namespace prob1
             return resultOfShow;
         }
 
+        public double FindArifm()
+        { 
+            double result = 0;
+            for (int i = 0; i < array.Length; i++) 
+            {
+                result += (double)array[i];
+            }
+
+            return (result / array.Length);
+        }
 
         public Rectangle this[int index]
         {

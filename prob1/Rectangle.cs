@@ -112,6 +112,13 @@ namespace prob1
 
         }
 
+        public static Rectangle Resulted(Rectangle rect1, int N)
+        {
+            rect1.Width *= N;
+            rect1.Height *= N;
+            return rect1;
+        }
+
         public Rectangle Result(Rectangle rect1, int N)
         {
             rect1.Width *= N;

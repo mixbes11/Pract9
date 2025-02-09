@@ -276,6 +276,24 @@ namespace prob1
         }
 
         [TestMethod]
+        public void RectArrayVariantTrue()
+        {
+            // Arrage
+            RectangleArray arr1 = new RectangleArray(10);
+            double SummaS = 0;
+            // Act
+            
+            for (int i = 0; i < 10; i++) // Вариантное задание
+            {
+                SummaS += (double)arr1[i];
+            }
+            SummaS /= 10;
+            double res = arr1.FindArifm();
+            // Assert
+            Assert.AreEqual(SummaS, res);
+        }
+
+        [TestMethod]
         public void RectArrayFullParams()
         {
             // Arrage
